@@ -22,7 +22,7 @@ class Program
             switch (choice)
             {
                 case "1":
-                    ShowTask(todoList);
+                    ShowTasks(todoList);
                     break;
 
                 case "2":
@@ -36,8 +36,59 @@ class Program
                 case "4":
                     running = false;
                     break;
-
             }
+        }
+    }
+
+    static void ShowTasks(ToDoList todoList)
+    {
+        var tasks = todoList.GetAllTasks();
+
+        if (tasks.Count == 0)
+        {
+            Console.WriteLine("Inga uppgifter");
+            return;
+        }
+
+        for (int i = 0; i < tasks.Count; i++)
+        {
+            Console.WriteLine($"{i}: {tasks[i]}");
+        }
+    }
+
+    static void AddTask(ToDoList todoList)
+    {
+        Console.WriteLine("Ny uppgift: ");
+        string task = Console.ReadLine();
+
+        todoList.AddTask(task);
+    }
+
+    static void RemoveTask(ToDoList todoList)
+    {
+        var tasks = todoList.GetAllTasks();
+
+        if (tasks.Count == 0)
+        {
+            Console.WriteLine("Inga uppgifter att ta bort");
+            return;
+        }
+
+        for (int i = 0; i < tasks.Count; i++)
+        {
+            Console.WriteLine($"{i}: {tasks[i]}");
+        }
+
+        Console.WriteLine("Skriv in numret på uppgiften som ska tas bort: ");
+
+        if (int.TryParse(Console.ReadLine(), out int index))
+        {
+            todoList.RemoveTask(index);
+            Console.WriteLine("Uppgift borttagen");
+        }
+        else
+        {
+            Console.WriteLine("Fel input");
         }
     }
 }

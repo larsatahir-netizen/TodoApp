@@ -9,7 +9,7 @@ namespace ToDoApp
 
         public void AddTask(string task)
         {
-            if (String.IsNullOrWhiteSpace(task))
+            if (!String.IsNullOrWhiteSpace(task))
             {
                 tasks.Add(task);
             }
