@@ -10,12 +10,12 @@ class Program
 
         while (running)
         {
-            Console.WriteLine("To do lista");
+            Console.WriteLine("\nTo do lista:");
             Console.WriteLine("1. Visa lista");
             Console.WriteLine("2. Lägg till ny uppgift");
             Console.WriteLine("3. Ta bort uppgift");
             Console.WriteLine("4. Avsluta");
-            Console.WriteLine("Välj: ");
+            Console.WriteLine("\nVälj: ");
 
             string choice = Console.ReadLine();
 
